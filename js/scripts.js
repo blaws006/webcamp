@@ -3,7 +3,7 @@ console.log('javascript connected!');
 
 async function fetchWeather() {
     const apiKey = process.env.OPEN_WEATHER_API_KEY;
-    const city = `Richmond`
+    const city = `Richmond, Virginia`
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
     try {
         const response = await fetch(url);
@@ -25,6 +25,7 @@ const displayWeather = (weather) => {
     weatherIcon.appendChild(weatherImg);
     document.getElementById('weather-temp').textContent = weather.main.temp + '°F';
     document.getElementById('weather-description').textContent = weather.weather[0].description
+    document.getElementById('cityName').textContent = weather.name;
 } 
 
 const carousel = new bootstrap.Carousel('#homeCarousel', {
