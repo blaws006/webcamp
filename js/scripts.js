@@ -1,6 +1,5 @@
 console.log('javascript connected!');
 
-
 async function fetchWeather() {
     const apiKey = process.env.OPEN_WEATHER_API_KEY;
     const city = `Richmond, Virginia`
@@ -15,8 +14,6 @@ async function fetchWeather() {
     }
 }
 
-fetchWeather();
-
 const displayWeather = (weather) => {
     const weatherIcon = document.getElementById('weather-icon');
     const weatherImg = document.createElement('img');
@@ -28,12 +25,13 @@ const displayWeather = (weather) => {
     document.getElementById('cityName').textContent = weather.name;
 } 
 
+fetchWeather();
+
 const carousel = new bootstrap.Carousel('#homeCarousel', {
     interval: 2000,
     pause: false
 });
 
-// when the pause button is clicked, pause the carousel
 const carouselButton = document.getElementById('carouselButton');
 const faIcon = document.getElementById('faButton');
 
